@@ -11,11 +11,11 @@
 #include "DBInterface.h"
 
 class BTHandler : DBInterface {
-    bool insert(Key k, Value v);
-    bool update(Key k, Value v);
-    bool find(Key k);
-    bool remove(Key k);
-    std::string get(Key k);
+    bool write_to_file(Key k, Value v);
+    bool set_in_file(Key k, Value v);
+    bool find_in_file(Key k);
+    bool remove_from_file(Key k);
+    std::string get_from_file(Key k);
     BTHandler(std::string file_name);
     ~BTHandler();
 
