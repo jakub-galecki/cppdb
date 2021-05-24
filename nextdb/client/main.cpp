@@ -6,7 +6,6 @@
 using json = nlohmann::json;
 
 int main(){
-
     httplib::Server server;
     server.Post("/db", [](const httplib::Request &req, httplib::Response &res) {
         jsonrpcpp::entity_ptr msg = jsonrpcpp::Parser::do_parse(req.body);
