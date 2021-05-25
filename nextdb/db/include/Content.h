@@ -9,10 +9,11 @@
 #include "types.h"
 
 class Content {
+public:
     Key k;
     Value v;
     Content(Key k, Value v){
-        k.assign(k);
+        k = k;
         v.assign(v);
     }
 };

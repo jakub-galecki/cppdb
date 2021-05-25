@@ -10,7 +10,7 @@
 #include "BTree.h"
 #include "DBInterface.h"
 
-class BTHandler : DBInterface {
+class BTHandler {
     bool write_to_file(Key k, Value v);
     bool set_in_file(Key k, Value v);
     bool find_in_file(Key k);

@@ -5,7 +5,7 @@
 
 // TODO: specify max string len
 
-typedef std::string Key;
+typedef int Key;
 typedef std::string Value;
 
 #endif //NEXTDB_TYPES_H
