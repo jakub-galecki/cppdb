@@ -13,12 +13,15 @@
 #include "Content.h"
 
 class BTreeNode {
+public:
     BTreeNode(int, bool, int);
     Value search(Key k);
-    void spiltChild(int i, BTreeNode *y);
+    void spiltChild(int, BTreeNode*);
+    void insertNonFull(Content c);
+    void traverse();
+    Content *data;
+    BTreeNode **children;
 private:
-    Content **cont;
-    BTreeNode** children;
     int degree;
     int keys_number;
     bool leaf;

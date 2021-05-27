@@ -7,15 +7,14 @@
 
 #include "iostream"
 #include "types.h"
+#include "string.h"
 
-class Content {
-public:
-    Key k;
-    Value v;
-    Content(Key k, Value v){
-        k = k;
-        v.assign(v);
-    }
-};
+// Implement comparison operators
+typedef struct {
+    // generate hash based on the key
+    Key key;
+    Value value;
+} Content;
+
 
 #endif //NEXTDB_CONTENT_H

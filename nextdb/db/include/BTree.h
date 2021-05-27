@@ -13,14 +13,15 @@
 class BTreeNode;
 
 class BTree {
-    BTree(std::string, int);
-    bool insert(Key k, Value v);
-    Value search(Key, BTreeNode *);
-    void insertNonFull(Key);
+    BTreeNode *root;
     std::string file_name;
     int degree;
-private:
-    BTreeNode *root;
+public:
+    BTree(std::string, int);
+    void insertToTree(Key, Value); // TODO: change to bool?
+    Value search(Key, BTreeNode *);
+    Value search(Key);
+    void printTree();
 
 };
 

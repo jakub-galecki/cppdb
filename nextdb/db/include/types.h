@@ -2,6 +2,7 @@
 #define NEXTDB_TYPES_H
 
 #include "iostream"
+#include "string.h"
 
 // TODO: specify max string len
 
