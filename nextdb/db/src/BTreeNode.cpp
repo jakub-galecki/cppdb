@@ -32,6 +32,7 @@ void BTreeNode::spiltChild(int i, BTreeNode *y) {
     for(int j = this->keys_number; j >= i; j--){
         this->data[j + 1] = this->data[j];
     }
+
     this->data[i] = y->data[this->degree - 1];
     this->keys_number += 1;
 }
@@ -39,20 +40,20 @@ void BTreeNode::spiltChild(int i, BTreeNode *y) {
 void BTreeNode::insertNonFull(Content c){
     int i = this->keys_number - 1;
     if (this->leaf) {
-        while (i >= 0 && c.key <  this->data[i].key){
+        while (i >= 0 &&  this->data[i].key > c.key){
             this->data[i + 1] = this->data[i];
             i -= 1;
         }
         this->data[i + 1] = c;
         this->keys_number += 1;
     } else {
-        while (i >= 0 &&  c.key < this->data[i].key){
+        while (i >= 0 && this->data[i].key > c.key){
             i -= 1;
         }
         i += 1;
         if(this->children[i]->keys_number == 2 * (this->degree - 1)){
             this->spiltChild(i,this->children[i]);
-            if (c.key > this->data[i].key){
+            if (this->data[i].key < c.key){
                 i += 1;
             }
         }
@@ -78,25 +79,17 @@ void BTreeNode::traverse() {
 
 Value BTreeNode::search(Key k) {
     int i = 0;
+    while(i < this->keys_number && this->data[i].key < k) {
+        i += 1;
+    }
 
     if(this->data[i].key == k){
         return this->data[i].value;
     }
+
     if (this->leaf){
         return "";
     }
 
-    for (; i < this->keys_number; i++){
-        if (!this->leaf){
-            this->children[i]->search(k);
-        }
-        if(this->data[i].key == k){
-            return this->data[i].value;
-        }
-    }
-
-    if(!this->leaf){
-        this->children[i]->search(k);
-    }
-
+    return this->children[i]->search(k);
 }

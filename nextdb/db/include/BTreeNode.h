@@ -22,7 +22,7 @@ public:
     Content *data;
     BTreeNode **children;
 private:
-    int degree;
+    int degree = 4;
     int keys_number;
     bool leaf;
 

@@ -15,9 +15,9 @@ class BTreeNode;
 class BTree {
     BTreeNode *root;
     std::string file_name;
-    int degree;
+    int degree = 4;
 public:
-    BTree(std::string, int);
+    BTree(std::string);
     void insertToTree(Key, Value); // TODO: change to bool?
     Value search(Key, BTreeNode *);
     Value search(Key);
